@@ -1,0 +1,11 @@
+{
+    "listenPort": 8787,
+    "targets": {
+      "openrouter": "https://openrouter.ai/api",
+      "ollama": "http://100.86.114.26:11434"
+    },
+    "suppressed": {
+        "ollama": true
+    }
+}
+

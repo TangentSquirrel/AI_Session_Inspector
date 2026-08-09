@@ -1,0 +1,27 @@
+{
+    "name": "modelusageviewer-extension",
+    "displayName": "Model Usage Viewer",
+    "description": "Displays JSON from `targets.json` in status bar",
+    "version": "1.0.0",
+    "engines": {
+      "vscode": "^1.60.0"
+    },
+    "activationEvents": [
+      "onStartupFinished",
+      "onCommand:logviewer.quickView"
+    ],  
+    "main": "extension.js",
+    "contributes": {
+      "commands": [
+        {
+          "command": "logviewer.quickView",
+          "title": "View Log Data"
+        }
+      ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fillmeinlater/examplereponame"
+    },
+    "license": "MIT"
+}

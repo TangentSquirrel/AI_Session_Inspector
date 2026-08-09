@@ -1,0 +1,105 @@
+#!/usr/bin/env node
+// logproxy.js — logs payloads for a configurable list of upstream targets.
+// Usage: 
+// node logproxy.js --config targets.json
+// node logproxy.js --config targets.json 2>&1 | tee proxy.log
+
+////testing
+//curl -s http://localhost:8787/openai/v1/chat/completions \
+//    -H "Content-Type: application/json" \
+//    -H "Authorization: Bearer sk-fake-or-real-key" \
+//    -d '{"model":"gpt-4o-mini","messages":[{"role":"user","content":"hi"}]}'
+
+////interesting blast of data here:
+//curl -s http://localhost:8787/openrouter/v1/chat/completions \
+//-H "Content-Type: application/json" \
+//-H "Authorization: Bearer sk-or-your-real-key" \
+//-d '{"model":"openai/gpt-4o-mini","messages":[{"role":"user","content":"hi"}]}'
+
+const quiet = process.argv.includes('--quiet');
+//node logproxy.js --config targets.json --quiet
+
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
+const { URL } = require('url');
+function loadConfig(path) {
+const raw = JSON.parse(fs.readFileSync(path, 'utf8'));
+const targets = {};
+for (const [key, url] of Object.entries(raw.targets)) targets[key] = new URL(url);
+  //return { port: raw.listenPort || 8787, targets };
+  return { port: raw.listenPort || 8787, targets, suppressed: raw.suppressed || {} };
+}
+const configPath = process.argv.includes('--config')
+? process.argv[process.argv.indexOf('--config') + 1]
+: './targets.json';
+//let { port, targets } = loadConfig(configPath);
+let { port, targets, suppressed } = loadConfig(configPath);
+
+// Reload the target list on edit, no restart needed.
+fs.watchFile(configPath, () => {
+try {
+    //({ targets } = loadConfig(configPath));
+    ({ targets, suppressed } = loadConfig(configPath));
+    console.log(`[config] reloaded ${Object.keys(targets).length} targets: ${Object.keys(targets).join(', ')}`);
+} catch (e) {
+    console.error('[config] reload failed:', e.message);
+}
+
+
+});
+http.createServer((req, res) => {
+const [, key, ...rest] = req.url.split('/'); // "/openai/v1/chat/completions"
+const target = targets[key];
+
+if (!target) {
+    if (!quiet) console.warn(`[warn] unknown target key "${key}" (known: ${Object.keys(targets).join(', ')})`);
+    return res.writeHead(404).end();
+}
+
+//if (!target) {
+//    console.warn(`[warn] unknown target key "${key}" (known: ${Object.keys(targets).join(', ')})`);
+//    return res.writeHead(404).end();
+//}
+
+//const targetQuiet = quiet || !!suppressed[key];
+const targetQuiet = !!suppressed[key];
+
+
+const basePath = target.pathname === '/' ? '' : target.pathname.replace(/\/$/, '');
+const path = basePath + '/' + rest.join('/');
+
+//const path = '/' + rest.join('/');
+const chunks = [];
+req.on('data', (c) => chunks.push(c));
+req.on('end', () => {
+    const body = Buffer.concat(chunks);
+    //console.log(`\n=== [${key}] ${new Date().toISOString()} ${req.method} ${path} ===`);
+    //try { console.log(JSON.stringify(JSON.parse(body), null, 2)); }
+    //catch { console.log(body.toString()); }
+    
+    if (!targetQuiet) {
+        console.log(`\n=== [${key}] ${new Date().toISOString()} ${req.method} ${path} ===`);
+        try { console.log(JSON.stringify(JSON.parse(body), null, 2)); }
+        catch { console.log(body.toString()); }
+    }
+
+    const client = target.protocol === 'https:' ? https : http;
+    const upstream = client.request(
+    //const upstream = https.request(
+    //{ hostname: target.hostname, port: target.port || 443, path, method: req.method,
+    { hostname: target.hostname, port: target.port || (target.protocol === 'https:' ? 443 : 80), path, method: req.method,
+        headers: { ...req.headers, host: target.hostname } },
+    (upRes) => {
+        res.writeHead(upRes.statusCode, upRes.headers);
+        //upRes.on('data', (chunk) => { process.stdout.write(`[${key} resp] ${chunk}`); res.write(chunk); });
+        upRes.on('data', (chunk) => { if (!targetQuiet) process.stdout.write(`[${key} resp] ${chunk}`); res.write(chunk); });
+        upRes.on('end', () => res.end());
+    }
+    );
+    upstream.on('error', (e) => { console.error(`[${key}]`, e); res.writeHead(502).end(); });
+    upstream.end(body);
+});
+}).listen(port, () => console.log(`logproxy listening on :${port}, targets: ${Object.keys(targets).join(', ')}, suppressed: ${Object.keys(suppressed).join(', ')}`));
+
+
