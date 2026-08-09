@@ -16,6 +16,7 @@
 //-H "Authorization: Bearer sk-or-your-real-key" \
 //-d '{"model":"openai/gpt-4o-mini","messages":[{"role":"user","content":"hi"}]}'
 
+//!not working
 const quiet = process.argv.includes('--quiet');
 //node logproxy.js --config targets.json --quiet
 
@@ -30,6 +31,7 @@ const { URL } = require('url');
 //? process.argv[process.argv.indexOf('--usage-log') + 1]
 //: 'usage.jsonl';
 
+//uses path provided by cli option, or defaults to ~/.ai-session-inspector/usage.jsonl
 const usageLogPath = process.argv.includes('--usage-log')
   ? process.argv[process.argv.indexOf('--usage-log') + 1]
   : path.join(os.homedir(), '.ai-session-inspector', 'usage.jsonl');
@@ -47,6 +49,7 @@ try {
   if (obj.usage) return { model: obj.model, usage: obj.usage };
 } catch {}
 let model, usage;
+//this streaming payload digestion hasnt been tested yet
 for (const line of text.split('\n')) {
   const trimmed = line.trim();
   if (!trimmed.startsWith('data:')) continue;
@@ -60,9 +63,12 @@ for (const line of text.split('\n')) {
 }
 return { model, usage };
 }
+
 // OpenRouter's public /models endpoint doubles as a pricing table for most
 // well-known models, even ones you're hitting directly (not through OpenRouter),
-// since it lists provider-prefixed slugs like "openai/gpt-4o-mini".
+// since it lists provider-prefixed slugs like "openai/gpt-4o-mini";
+//still we're kind of hoping the other providers dont subtly mess this up if we're crossing them
+//theres no particular reason that they payload they return wil match our current schema
 let modelPricing = {};
 async function loadModelPricing() {
 try {
@@ -93,7 +99,6 @@ const guess = `${targetKey}/${model}`; // heuristic: OpenRouter slugs are "<prov
 if (modelPricing[guess]) return modelPricing[guess];
 return null;
 }
-
 
 function loadConfig(path) {
 const raw = JSON.parse(fs.readFileSync(path, 'utf8'));
@@ -136,7 +141,6 @@ if (!target) {
 
 //const targetQuiet = quiet || !!suppressed[key];
 const targetQuiet = !!suppressed[key];
-
 
 const basePath = target.pathname === '/' ? '' : target.pathname.replace(/\/$/, '');
 const path = basePath + '/' + rest.join('/');
