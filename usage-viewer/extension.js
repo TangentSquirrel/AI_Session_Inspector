@@ -9,8 +9,10 @@ let statusBarItem;
 //}
 
 function getUsageLogPath(context) {
-  const globalStoragePath = context.globalStorageUri.fsPath;
-  
+//  const globalStoragePath = context.globalStorageUri.fsPath;
+  const os = require('os');
+  const sharedPath = path.join(os.homedir(), '.ai-session-inspector');
+
   // Ensure directory exists
   if (!fs.existsSync(globalStoragePath)) {
     fs.mkdirSync(globalStoragePath, { recursive: true });

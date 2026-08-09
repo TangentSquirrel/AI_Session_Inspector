@@ -16,6 +16,8 @@
 //-H "Authorization: Bearer sk-or-your-real-key" \
 //-d '{"model":"openai/gpt-4o-mini","messages":[{"role":"user","content":"hi"}]}'
 
+const os = require('os');
+
 const quiet = process.argv.includes('--quiet');
 //node logproxy.js --config targets.json --quiet
 
@@ -24,9 +26,20 @@ const http = require('http');
 const https = require('https');
 const { URL } = require('url');
 
+//const usageLogPath = process.argv.includes('--usage-log')
+//? process.argv[process.argv.indexOf('--usage-log') + 1]
+//: 'usage.jsonl';
+
 const usageLogPath = process.argv.includes('--usage-log')
-? process.argv[process.argv.indexOf('--usage-log') + 1]
-: 'usage.jsonl';
+  ? process.argv[process.argv.indexOf('--usage-log') + 1]
+  : path.join(os.homedir(), '.ai-session-inspector', 'usage.jsonl');
+
+// Ensure directory exists
+const usageDir = path.dirname(usageLogPath);
+if (!fs.existsSync(usageDir)) {
+  fs.mkdirSync(usageDir, { recursive: true });
+}
+
 function extractUsage(rawBody) {
 const text = rawBody.toString();
 try {
