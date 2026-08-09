@@ -7,7 +7,7 @@
         "request": "launch",
         "args": [
           "--extensionDevelopmentPath=${workspaceFolder}",
-          "/home/thelemur/More_Files/Dev/AI_Session_Inspector"
+          "${workspaceFolder}/.."
         ]
       }
     ]
