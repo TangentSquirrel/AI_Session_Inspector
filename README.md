@@ -5,6 +5,9 @@
 #open void in developer mode to run extension from code
 void --extensionDevelopmentPath=<whatever>/AI_Session_Inspector/usage-viewer/ <whatever>/AI_Session_Inspector/
 
+#reload window after code update, type this in the top bar:
+>Developer: Reload Window
+
 #run node router in term:
 node logproxy.js --config targets.json --quiet 2>&1 | tee proxy.log 
 
