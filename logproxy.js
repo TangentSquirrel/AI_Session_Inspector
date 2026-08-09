@@ -16,11 +16,10 @@
 //-H "Authorization: Bearer sk-or-your-real-key" \
 //-d '{"model":"openai/gpt-4o-mini","messages":[{"role":"user","content":"hi"}]}'
 
-const os = require('os');
-
 const quiet = process.argv.includes('--quiet');
 //node logproxy.js --config targets.json --quiet
 
+const os = require('os');
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
