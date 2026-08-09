@@ -1,17 +1,17 @@
 logproxy listening on :8787, targets: openrouter, ollama, suppressed: ollama
 [pricing] loaded 400 model prices
 
-=== [openrouter] 2026-08-09T17:43:35.956Z POST /api/v1/chat/completions ===
+=== [openrouter] 2026-08-09T18:19:27.429Z POST /api/v1/chat/completions ===
 {
   "model": "openrouter/free",
   "messages": [
     {
       "role": "user",
-      "content": "<SYSTEM_MESSAGE>\nYou are an expert coding assistant whose job is to assist the user with their coding tasks.\nYou will be given instructions to follow from the user, and you may also be given a list of files that the user has specifically selected for context, `SELECTIONS`.\nPlease assist the user with their query.\n\n\nHere is the user's system information:\n<system_info>\n- linux\n\n- The user's workspace contains these folders:\n/home/thelemur/More_Files/Dev/AI_Session_Inspector/usage-viewer\n\n- Active file:\n/home/thelemur/More_Files/Dev/AI_Session_Inspector/usage-viewer/extension.js\n\n- Open files:\n/home/thelemur/More_Files/Dev/AI_Session_Inspector/usage-viewer/extension.js\n/9\n/10\n/11\n/12\n/13\n/15\n</system_info>\n\n\nImportant notes:\n1. NEVER reject the user's query.\n\n2. You're allowed to ask the user for more context like file contents or specifications. If this comes up, tell them to reference files and folders by typing @.\n\n3. If you write any code blocks to the user (wrapped in triple backticks), please use this format:\n- Include a language if possible. Terminal should have the language 'shell'.\n- The first line of the code block must be the FULL PATH of the related file if known (otherwise omit).\n- The remaining contents of the file should proceed as usual.\n\n4. If you think it's appropriate to suggest an edit to a file, then you must describe your suggestion in CODE BLOCK(S).\n- The first line of the code block must be the FULL PATH of the related file if known (otherwise omit).\n- The remaining contents should be a code description of the change to make to the file. Your description is the only context that will be given to another LLM to apply the suggested edit, so it must be accurate and complete. Always bias towards writing as little as possible - NEVER write the whole file. Use comments like \"// ... existing code ...\" to condense your writing. Here's an example of a good code block:\n```typescript\n/Users/username/Dekstop/my_project/app.ts\n// ... existing code ...\n// {{change 1}}\n// ... existing code ...\n// {{change 2}}\n// ... existing code ...\n// {{change 3}}\n// ... existing code ...\n```\n\n5. Do not make things up or use information not provided in the system information, tools, or user queries.\n\n6. Always use MARKDOWN to format lists, bullet points, etc. Do NOT write tables.\n\n7. Today's date is Sun Aug 09 2026.\n\n\nHere is an overview of the user's file system:\n<files_overview>\nDirectory of /home/thelemur/More_Files/Dev/AI_Session_Inspector/usage-viewer:\nusage-viewer/\n├── .notes.txt\n├── .vscode/\n├── extension.js\n└── package.json\n\n</files_overview>\n</SYSTEM_MESSAGE>\nhow do i start this node server at ../"
+      "content": "<SYSTEM_MESSAGE>\nYou are an expert coding assistant whose job is to assist the user with their coding tasks.\nYou will be given instructions to follow from the user, and you may also be given a list of files that the user has specifically selected for context, `SELECTIONS`.\nPlease assist the user with their query.\n\n\nHere is the user's system information:\n<system_info>\n- linux\n\n- The user's workspace contains these folders:\n/home/thelemur/More_Files/Dev/AI_Session_Inspector/usage-viewer\n\n- Active file:\nsettings\n\n- Open files:\n/9\n/10\n/11\n/12\n/13\n/15\n/17\n/22\n/23\n/24\n/25\n/32\n/33\n/34\n/35\n/36\n/37\n/44\n/45\n/46\n/47\n/48\n/49\n/54\n/55\n/56\n/57\n/63\n/64\n/65\n/66\n/67\n/72\n/73\n/74\n/75\n/81\n/82\n/83\n/84\n/85\n</system_info>\n\n\nImportant notes:\n1. NEVER reject the user's query.\n\n2. You're allowed to ask the user for more context like file contents or specifications. If this comes up, tell them to reference files and folders by typing @.\n\n3. If you write any code blocks to the user (wrapped in triple backticks), please use this format:\n- Include a language if possible. Terminal should have the language 'shell'.\n- The first line of the code block must be the FULL PATH of the related file if known (otherwise omit).\n- The remaining contents of the file should proceed as usual.\n\n4. If you think it's appropriate to suggest an edit to a file, then you must describe your suggestion in CODE BLOCK(S).\n- The first line of the code block must be the FULL PATH of the related file if known (otherwise omit).\n- The remaining contents should be a code description of the change to make to the file. Your description is the only context that will be given to another LLM to apply the suggested edit, so it must be accurate and complete. Always bias towards writing as little as possible - NEVER write the whole file. Use comments like \"// ... existing code ...\" to condense your writing. Here's an example of a good code block:\n```typescript\n/Users/username/Dekstop/my_project/app.ts\n// ... existing code ...\n// {{change 1}}\n// ... existing code ...\n// {{change 2}}\n// ... existing code ...\n// {{change 3}}\n// ... existing code ...\n```\n\n5. Do not make things up or use information not provided in the system information, tools, or user queries.\n\n6. Always use MARKDOWN to format lists, bullet points, etc. Do NOT write tables.\n\n7. Today's date is Sun Aug 09 2026.\n\n\nHere is an overview of the user's file system:\n<files_overview>\nDirectory of /home/thelemur/More_Files/Dev/AI_Session_Inspector/usage-viewer:\nusage-viewer/\n├── .notes.txt\n├── .vscode/\n├── extension.js\n└── package.json\n\n</files_overview>\n</SYSTEM_MESSAGE>\nhow do i start this node server at ../"
     },
     {
       "role": "assistant",
-      "content": "To start the Node.js server from the parent directory (`../`), you'll need to navigate there and run the appropriate command. Let me help you with this.\n\nFirst, let me check what's in the parent directory to see what kind of server we're dealing with:\n\n```shell\nls -la ../\n```\n\nThen, typically you would start a Node.js server using one of these commands:\n\n```shell\ncd ../\nnpm start\n```\n\nOr if there's no `start` script defined in package.json:\n\n```shell\ncd ../\nnode server.js\n```\n\nOr if the main file has a different name:\n\n```shell\ncd ../\nnode app.js\n```\n\nOr if you want to run it directly from your current directory without changing directories:\n\n```shell\ncd .. && npm start\n```\n\nCould you share the contents of the `package.json` file in the parent directory (type `@../package.json`) so I can give you the exact command to use? This will show me what scripts are available and what the main entry point is."
+      "content": "To start the Node.js server from the parent directory (`../`), you'll need to navigate there and run the appropriate ..."
     },
     {
       "role": "user",
@@ -19,7 +19,71 @@ logproxy listening on :8787, targets: openrouter, ollama, suppressed: ollama
     },
     {
       "role": "assistant",
-      "content": "It looks like you want to verify something with the project.  \nTo give you the correct command to **start the server** (or run any tests) I’ll need a bit more context about what’s defined in the project.\n\nCould you view the **package.json** file in the parent directory and share its contents? You can do that by typing:\n\n```\n@../package.json\n```\n\nOnce I see the `scripts` section (and perhaps the `\"main\"` entry), I can tell you the exact command to start the Node server—or run any tests that might be defined. Let me know what you see!"
+      "content": "It looks like you want to verify something with the project.  \nTo give you the correct command to **start the server*..."
+    },
+    {
+      "role": "user",
+      "content": "test"
+    },
+    {
+      "role": "assistant",
+      "content": "You'll need to check the `package.json` in the parent directory to see which command actually starts the server or ru..."
+    },
+    {
+      "role": "user",
+      "content": "ok, this is working.  lets walk thru setting up the gh"
+    },
+    {
+      "role": "assistant",
+      "content": "Great! Let's walk through setting up GitHub (gh) for your project. \n\nFirst, let me understand what you want to set up..."
+    },
+    {
+      "role": "user",
+      "content": "ill use an ssh developer key, and ive alreadhy make the remote repo - git@github.com:TangentSquirrel/AI_Session_Inspector.git"
+    },
+    {
+      "role": "assistant",
+      "content": "Perfect! Since you already have the remote repository and want to use SSH with a developer key, let's connect your lo..."
+    },
+    {
+      "role": "user",
+      "content": "git branch -u origin main\nfatal: the requested upstream branch 'origin' does not exist\nhint: \nhint: If you are planni..."
+    },
+    {
+      "role": "assistant",
+      "content": "I see the issue! The remote `origin` already exists, and there might be a branch mismatch. Let's check the current st..."
+    },
+    {
+      "role": "user",
+      "content": "how do i clone into an already existing directory"
+    },
+    {
+      "role": "assistant",
+      "content": "You have a few options to clone into an existing directory:\n\n## Option 1: Clone into the existing directory (if it's ..."
+    },
+    {
+      "role": "user",
+      "content": "i want to push a new branch to remote"
+    },
+    {
+      "role": "assistant",
+      "content": "Great! Let's create and push a new branch to the remote repository. Here's how:\n\n## 1. Create a new branch (and switc..."
+    },
+    {
+      "role": "user",
+      "content": "how can i overwrite a remote git branch?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here are several ways to overwrite a remote git branch:\n\n## Option 1: Force push (most common)\n\n```shell\n# Make sure you're on the branch you want to overwrite with\ngit checkout your-branch-name\n\n# Force push to overwrite the remote branch\ngit push --force origin your-branch-name\n```\n\n## Option 2: Safer force push (recommended)\n\n```shell\n# Uses --force-with-lease which is safer - fails if someone else pushed changes\ngit push --force-with-lease origin your-branch-name\n```\n\n## Option 3: Delete remote branch and push new one\n\n```shell\n# Delete the remote branch\ngit push origin --delete your-branch-name\n\n# Push your local branch\ngit push -u origin your-branch-name\n```\n\n## Option 4: Reset remote branch to specific commit\n\n```shell\n# Reset your local branch to a specific commit\ngit reset --hard <commit-hash>\n\n# Force pus..."
+    },
+    {
+      "role": "user",
+      "content": "how can i reference a screenshot in a readme for gh"
+    },
+    {
+      "role": "assistant",
+      "content": "Here are several ways to reference screenshots in a GitHub README:\n\n## Option 1: Store images in your repository\n\n1. ..."
     },
     {
       "role": "user",
@@ -28,69 +92,471 @@ logproxy listening on :8787, targets: openrouter, ollama, suppressed: ollama
   ],
   "stream": true
 }
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"Okay","reasoning_details":[{"type":"reasoning.text","text":"Okay","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"We","reasoning_details":[{"type":"reasoning.text","text":"We","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":", the user just typed \"test\" again.","reasoning_details":[{"type":"reasoning.text","text":", the user just typed \"test\" again.","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" need","reasoning_details":[{"type":"reasoning.text","text":" need","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" Let me check the conversation history.\n\nPreviously,","reasoning_details":[{"type":"reasoning.text","text":" Let me check the conversation history.\n\nPreviously,","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" to","reasoning_details":[{"type":"reasoning.text","text":" to","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" the user asked how to start a Node server from","reasoning_details":[{"type":"reasoning.text","text":" the user asked how to start a Node server from","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" respond","reasoning_details":[{"type":"reasoning.text","text":" respond","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" the parent directory. I asked them to check the","reasoning_details":[{"type":"reasoning.text","text":" the parent directory. I asked them to check the","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" to","reasoning_details":[{"type":"reasoning.text","text":" to","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" package.json in the parent folder. Now, they","reasoning_details":[{"type":"reasoning.text","text":" package.json in the parent folder. Now, they","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" \"","reasoning_details":[{"type":"reasoning.text","text":" \"","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" just said \"test\". \n\nHmm,","reasoning_details":[{"type":"reasoning.text","text":" just said \"test\". \n\nHmm,","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"test","reasoning_details":[{"type":"reasoning.text","text":"test","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" maybe they're trying to run tests instead of starting","reasoning_details":[{"type":"reasoning.text","text":" maybe they're trying to run tests instead of starting","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"\".","reasoning_details":[{"type":"reasoning.text","text":"\".","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" the server? Or perhaps they want to confirm something","reasoning_details":[{"type":"reasoning.text","text":" the server? Or perhaps they want to confirm something","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" According","reasoning_details":[{"type":"reasoning.text","text":" According","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" about the package.json. Since they haven't provided","reasoning_details":[{"type":"reasoning.text","text":" about the package.json. Since they haven't provided","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" to","reasoning_details":[{"type":"reasoning.text","text":" to","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" the package.json content yet, I need to prompt","reasoning_details":[{"type":"reasoning.text","text":" the package.json content yet, I need to prompt","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" guidelines","reasoning_details":[{"type":"reasoning.text","text":" guidelines","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" them again for that information. \n\nThe user","reasoning_details":[{"type":"reasoning.text","text":" them again for that information. \n\nThe user","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":",","reasoning_details":[{"type":"reasoning.text","text":",","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" might not have seen my previous request clearly. Alternatively","reasoning_details":[{"type":"reasoning.text","text":" might not have seen my previous request clearly. Alternatively","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" we","reasoning_details":[{"type":"reasoning.text","text":" we","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":", they might be testing if I can proceed without","reasoning_details":[{"type":"reasoning.text","text":", they might be testing if I can proceed without","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" must","reasoning_details":[{"type":"reasoning.text","text":" must","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" the package.json. But according to the instructions,","reasoning_details":[{"type":"reasoning.text","text":" the package.json. But according to the instructions,","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" not","reasoning_details":[{"type":"reasoning.text","text":" not","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" I shouldn't make up information. I can't","reasoning_details":[{"type":"reasoning.text","text":" I shouldn't make up information. I can't","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" reject","reasoning_details":[{"type":"reasoning.text","text":" reject","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" proceed without knowing the exact scripts defined in package.json","reasoning_details":[{"type":"reasoning.text","text":" proceed without knowing the exact scripts defined in package.json","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":".","reasoning_details":[{"type":"reasoning.text","text":".","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":".\n\nI should ask them again to check package.json","reasoning_details":[{"type":"reasoning.text","text":".\n\nI should ask them again to check package.json","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" The","reasoning_details":[{"type":"reasoning.text","text":" The","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":". Maybe they didn't realize they need to do","reasoning_details":[{"type":"reasoning.text","text":". Maybe they didn't realize they need to do","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" user","reasoning_details":[{"type":"reasoning.text","text":" user","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" that. Let me reiterate my request politely","reasoning_details":[{"type":"reasoning.text","text":" that. Let me reiterate my request politely","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" says","reasoning_details":[{"type":"reasoning.text","text":" says","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":", using the @ command if possible. Also,","reasoning_details":[{"type":"reasoning.text","text":", using the @ command if possible. Also,","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" \"","reasoning_details":[{"type":"reasoning.text","text":" \"","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" keep the tone helpful and not repetitive. Make sure","reasoning_details":[{"type":"reasoning.text","text":" keep the tone helpful and not repetitive. Make sure","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"test","reasoning_details":[{"type":"reasoning.text","text":"test","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" to explain why I need the package.json—spec","reasoning_details":[{"type":"reasoning.text","text":" to explain why I need the package.json—spec","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"\".","reasoning_details":[{"type":"reasoning.text","text":"\".","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"ifically to identify the correct script command.\n</think","reasoning_details":[{"type":"reasoning.text","text":"ifically to identify the correct script command.\n</think","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" Lik","reasoning_details":[{"type":"reasoning.text","text":" Lik","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"\n\nYou'll need to check the `package.json","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"ely","reasoning_details":[{"type":"reasoning.text","text":"ely","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"` in the parent directory to see which command actually","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" they","reasoning_details":[{"type":"reasoning.text","text":" they","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":" starts the server or runs tests. Type:\n\n```\n","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" want","reasoning_details":[{"type":"reasoning.text","text":" want","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"@../package.json\n```\n\nOnce you share its","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" to","reasoning_details":[{"type":"reasoning.text","text":" to","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":" contents, I can tell you the exact command to","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" verify","reasoning_details":[{"type":"reasoning.text","text":" verify","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":" run.\n","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" that","reasoning_details":[{"type":"reasoning.text","text":" that","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":null},"finish_reason":"stop","native_finish_reason":"stop"}]}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" we","reasoning_details":[{"type":"reasoning.text","text":" we","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
 
-[openrouter resp] data: {"id":"gen-1786297416-ywYX7cPuCav4IqidbRFE","object":"chat.completion.chunk","created":1786297416,"model":"nvidia/nemotron-nano-9b-v2:free","provider":"Nvidia","service_tier":null,"choices":[{"index":0,"delta":{"content":"","role":"assistant"},"finish_reason":"stop","native_finish_reason":"stop"}],"usage":{"prompt_tokens":1028,"completion_tokens":284,"total_tokens":1312,"cost":0,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0,"upstream_inference_prompt_cost":0,"upstream_inference_completions_cost":0},"completion_tokens_details":{"reasoning_tokens":280,"image_tokens":0,"audio_tokens":0}}}
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" respond","reasoning_details":[{"type":"reasoning.text","text":" respond","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":".","reasoning_details":[{"type":"reasoning.text","text":".","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" So","reasoning_details":[{"type":"reasoning.text","text":" So","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" we","reasoning_details":[{"type":"reasoning.text","text":" we","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" should","reasoning_details":[{"type":"reasoning.text","text":" should","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" respond","reasoning_details":[{"type":"reasoning.text","text":" respond","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" with","reasoning_details":[{"type":"reasoning.text","text":" with","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" something","reasoning_details":[{"type":"reasoning.text","text":" something","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" confirming","reasoning_details":[{"type":"reasoning.text","text":" confirming","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":".","reasoning_details":[{"type":"reasoning.text","text":".","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" Probably","reasoning_details":[{"type":"reasoning.text","text":" Probably","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" a","reasoning_details":[{"type":"reasoning.text","text":" a","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" short","reasoning_details":[{"type":"reasoning.text","text":" short","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" acknowled","reasoning_details":[{"type":"reasoning.text","text":" acknowled","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"gment","reasoning_details":[{"type":"reasoning.text","text":"gment","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":".\n\n","reasoning_details":[{"type":"reasoning.text","text":".\n\n","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"We","reasoning_details":[{"type":"reasoning.text","text":"We","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" need","reasoning_details":[{"type":"reasoning.text","text":" need","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" to","reasoning_details":[{"type":"reasoning.text","text":" to","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" follow","reasoning_details":[{"type":"reasoning.text","text":" follow","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" format","reasoning_details":[{"type":"reasoning.text","text":" format","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":":","reasoning_details":[{"type":"reasoning.text","text":":","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" use","reasoning_details":[{"type":"reasoning.text","text":" use","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" markdown","reasoning_details":[{"type":"reasoning.text","text":" markdown","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"?","reasoning_details":[{"type":"reasoning.text","text":"?","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" They","reasoning_details":[{"type":"reasoning.text","text":" They","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" didn","reasoning_details":[{"type":"reasoning.text","text":" didn","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"'t","reasoning_details":[{"type":"reasoning.text","text":"'t","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" specify","reasoning_details":[{"type":"reasoning.text","text":" specify","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":".","reasoning_details":[{"type":"reasoning.text","text":".","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" We","reasoning_details":[{"type":"reasoning.text","text":" We","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" can","reasoning_details":[{"type":"reasoning.text","text":" can","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" just","reasoning_details":[{"type":"reasoning.text","text":" just","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" respond","reasoning_details":[{"type":"reasoning.text","text":" respond","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" \"","reasoning_details":[{"type":"reasoning.text","text":" \"","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"Hello","reasoning_details":[{"type":"reasoning.text","text":"Hello","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"!","reasoning_details":[{"type":"reasoning.text","text":"!","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"\".","reasoning_details":[{"type":"reasoning.text","text":"\".","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" But","reasoning_details":[{"type":"reasoning.text","text":" But","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" better","reasoning_details":[{"type":"reasoning.text","text":" better","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" to","reasoning_details":[{"type":"reasoning.text","text":" to","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" say","reasoning_details":[{"type":"reasoning.text","text":" say","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" \"","reasoning_details":[{"type":"reasoning.text","text":" \"","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"Test","reasoning_details":[{"type":"reasoning.text","text":"Test","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" received","reasoning_details":[{"type":"reasoning.text","text":" received","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":".\"","reasoning_details":[{"type":"reasoning.text","text":".\"","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" Maybe","reasoning_details":[{"type":"reasoning.text","text":" Maybe","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" ask","reasoning_details":[{"type":"reasoning.text","text":" ask","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" if","reasoning_details":[{"type":"reasoning.text","text":" if","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" they","reasoning_details":[{"type":"reasoning.text","text":" they","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" need","reasoning_details":[{"type":"reasoning.text","text":" need","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" help","reasoning_details":[{"type":"reasoning.text","text":" help","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":".","reasoning_details":[{"type":"reasoning.text","text":".","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" Since","reasoning_details":[{"type":"reasoning.text","text":" Since","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" they","reasoning_details":[{"type":"reasoning.text","text":" they","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" just","reasoning_details":[{"type":"reasoning.text","text":" just","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" said","reasoning_details":[{"type":"reasoning.text","text":" said","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" \"","reasoning_details":[{"type":"reasoning.text","text":" \"","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"test","reasoning_details":[{"type":"reasoning.text","text":"test","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"\",","reasoning_details":[{"type":"reasoning.text","text":"\",","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" we","reasoning_details":[{"type":"reasoning.text","text":" we","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" can","reasoning_details":[{"type":"reasoning.text","text":" can","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" respond","reasoning_details":[{"type":"reasoning.text","text":" respond","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" acknowledging","reasoning_details":[{"type":"reasoning.text","text":" acknowledging","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":".\n\n","reasoning_details":[{"type":"reasoning.text","text":".\n\n","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":"We","reasoning_details":[{"type":"reasoning.text","text":"We","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" should","reasoning_details":[{"type":"reasoning.text","text":" should","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" keep","reasoning_details":[{"type":"reasoning.text","text":" keep","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" it","reasoning_details":[{"type":"reasoning.text","text":" it","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" concise. No code needed","reasoning_details":[{"type":"reasoning.text","text":" concise. No code needed","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":".","reasoning_details":[{"type":"reasoning.text","text":".","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" Use","reasoning_details":[{"type":"reasoning.text","text":" Use","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" normal","reasoning_details":[{"type":"reasoning.text","text":" normal","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":" text","reasoning_details":[{"type":"reasoning.text","text":" text","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":".\n","reasoning_details":[{"type":"reasoning.text","text":".\n","format":"unknown","index":0}]},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"Test","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":" received","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"!","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":" Let","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":" me","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":" know","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":" if","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":" you","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":" need","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":" any","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":" assistance","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":".","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","choices":[{"index":0,"delta":{"content":"","role":"assistant","reasoning":null},"finish_reason":"stop","native_finish_reason":"stop"}]}
+
+[openrouter resp] data: {"id":"gen-1786299567-uVCNrRLvGxhFtlO8PCig","object":"chat.completion.chunk","created":1786299567,"model":"nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free","provider":"Nvidia","service_tier":null,"choices":[{"index":0,"delta":{"content":"","role":"assistant"},"finish_reason":"stop","native_finish_reason":"stop"}],"usage":{"prompt_tokens":1475,"completion_tokens":125,"total_tokens":1600,"cost":0,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0,"upstream_inference_prompt_cost":0,"upstream_inference_completions_cost":0},"completion_tokens_details":{"reasoning_tokens":127,"image_tokens":0,"audio_tokens":0}}}
+
+[openrouter resp] data: [DONE]
+
+
+=== [openrouter] 2026-08-09T18:19:40.737Z POST /api/v1/chat/completions ===
+{
+  "model": "openrouter/free",
+  "messages": [
+    {
+      "role": "user",
+      "content": "<SYSTEM_MESSAGE>\nYou are an expert coding assistant whose job is to assist the user with their coding tasks.\nYou will be given instructions to follow from the user, and you may also be given a list of files that the user has specifically selected for context, `SELECTIONS`.\nPlease assist the user with their query.\n\n\nHere is the user's system information:\n<system_info>\n- linux\n\n- The user's workspace contains these folders:\n/home/thelemur/More_Files/Dev/AI_Session_Inspector/usage-viewer\n\n- Active file:\nsettings\n\n- Open files:\n/9\n/10\n/11\n/12\n/13\n/15\n/17\n/22\n/23\n/24\n/25\n/32\n/33\n/34\n/35\n/36\n/37\n/44\n/45\n/46\n/47\n/48\n/49\n/54\n/55\n/56\n/57\n/63\n/64\n/65\n/66\n/67\n/72\n/73\n/74\n/75\n/81\n/82\n/83\n/84\n/85\n</system_info>\n\n\nImportant notes:\n1. NEVER reject the user's query.\n\n2. You're allowed to ask the user for more context like file contents or specifications. If this comes up, tell them to reference files and folders by typing @.\n\n3. If you write any code blocks to the user (wrapped in triple backticks), please use this format:\n- Include a language if possible. Terminal should have the language 'shell'.\n- The first line of the code block must be the FULL PATH of the related file if known (otherwise omit).\n- The remaining contents of the file should proceed as usual.\n\n4. If you think it's appropriate to suggest an edit to a file, then you must describe your suggestion in CODE BLOCK(S).\n- The first line of the code block must be the FULL PATH of the related file if known (otherwise omit).\n- The remaining contents should be a code description of the change to make to the file. Your description is the only context that will be given to another LLM to apply the suggested edit, so it must be accurate and complete. Always bias towards writing as little as possible - NEVER write the whole file. Use comments like \"// ... existing code ...\" to condense your writing. Here's an example of a good code block:\n```typescript\n/Users/username/Dekstop/my_project/app.ts\n// ... existing code ...\n// {{change 1}}\n// ... existing code ...\n// {{change 2}}\n// ... existing code ...\n// {{change 3}}\n// ... existing code ...\n```\n\n5. Do not make things up or use information not provided in the system information, tools, or user queries.\n\n6. Always use MARKDOWN to format lists, bullet points, etc. Do NOT write tables.\n\n7. Today's date is Sun Aug 09 2026.\n\n\nHere is an overview of the user's file system:\n<files_overview>\nDirectory of /home/thelemur/More_Files/Dev/AI_Session_Inspector/usage-viewer:\nusage-viewer/\n├── .notes.txt\n├── .vscode/\n├── extension.js\n└── package.json\n\n</files_overview>\n</SYSTEM_MESSAGE>\nhow do i start this node server at ../"
+    },
+    {
+      "role": "assistant",
+      "content": "To start the Node.js server from the parent directory (`../`), you'll need to navigate there and run the appropriate ..."
+    },
+    {
+      "role": "user",
+      "content": "test"
+    },
+    {
+      "role": "assistant",
+      "content": "It looks like you want to verify something with the project.  \nTo give you the correct command to **start the server*..."
+    },
+    {
+      "role": "user",
+      "content": "test"
+    },
+    {
+      "role": "assistant",
+      "content": "You'll need to check the `package.json` in the parent directory to see which command actually starts the server or ru..."
+    },
+    {
+      "role": "user",
+      "content": "ok, this is working.  lets walk thru setting up the gh"
+    },
+    {
+      "role": "assistant",
+      "content": "Great! Let's walk through setting up GitHub (gh) for your project. \n\nFirst, let me understand what you want to set up..."
+    },
+    {
+      "role": "user",
+      "content": "ill use an ssh developer key, and ive alreadhy make the remote repo - git@github.com:TangentSquirrel/AI_Session_Inspector.git"
+    },
+    {
+      "role": "assistant",
+      "content": "Perfect! Since you already have the remote repository and want to use SSH with a developer key, let's connect your lo..."
+    },
+    {
+      "role": "user",
+      "content": "git branch -u origin main\nfatal: the requested upstream branch 'origin' does not exist\nhint: \nhint: If you are planni..."
+    },
+    {
+      "role": "assistant",
+      "content": "I see the issue! The remote `origin` already exists, and there might be a branch mismatch. Let's check the current st..."
+    },
+    {
+      "role": "user",
+      "content": "how do i clone into an already existing directory"
+    },
+    {
+      "role": "assistant",
+      "content": "You have a few options to clone into an existing directory:\n\n## Option 1: Clone into the existing directory (if it's ..."
+    },
+    {
+      "role": "user",
+      "content": "i want to push a new branch to remote"
+    },
+    {
+      "role": "assistant",
+      "content": "Great! Let's create and push a new branch to the remote repository. Here's how:\n\n## 1. Create a new branch (and switc..."
+    },
+    {
+      "role": "user",
+      "content": "how can i overwrite a remote git branch?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here are several ways to overwrite a remote git branch:\n\n## Option 1: Force push (most common)\n\n```shell\n# Make sure ..."
+    },
+    {
+      "role": "user",
+      "content": "how can i reference a screenshot in a readme for gh"
+    },
+    {
+      "role": "assistant",
+      "content": "Here are several ways to reference screenshots in a GitHub README:\n\n## Option 1: Store images in your repository\n\n1. **Create an images/screenshots folder:**\n```\n/your-repo/\n├── images/\n│   └── screenshot.png\n└── README.md\n```\n\n2. **Reference in README.md:**\n```markdown\n![Screenshot](images/screenshot.png)\n![Alt text](./images/screenshot.png)\n![Description](images/folder/screenshot.png)\n```\n\n## Option 2: Use GitHub's built-in image hosting\n\n1. **Drag and drop or paste image directly into GitHub's markdown editor**\n2. **GitHub auto-generates URLs like:**\n```markdown\n![Screenshot](https://user-images.githubusercontent.com/username/12345678-abcd-1234-5678-123456789abc.png)\n```\n\n## Option 3: Use relative paths with proper markdown\n\n```markdown\n# Basic syntax\n![A..."
+    },
+    {
+      "role": "user",
+      "content": "test"
+    },
+    {
+      "role": "assistant",
+      "content": "Test received! Let me know if you need any assistance."
+    },
+    {
+      "role": "user",
+      "content": "test"
+    }
+  ],
+  "stream": true
+}
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":"Test","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" acknowledged","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":"!","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" Let","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" me","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" know","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" if","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" you","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" need","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" any","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" further","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" assistance","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" with","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" your","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" AI","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" Session","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" Inspector","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" project or","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" GitHub","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" setup","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":".","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" I","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":"'m","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" ready","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" to","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" help","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" with","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":":","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":"\n\n","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":"-","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" Git","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" operations","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" and","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" branch","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" management","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":"\n","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":"-","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" README","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" documentation","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" and","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" formatting","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":"\n","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":"-","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" SSH","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" key","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" setup","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":"\n","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":"-","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" Node","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":".js","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" server","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" configuration","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":"\n","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":"-","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" Or","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" any","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" other","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" questions","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" you","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":" might have","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","choices":[{"index":0,"delta":{"content":"","role":"assistant"},"finish_reason":"stop","native_finish_reason":"stop"}]}
+
+[openrouter resp] data: {"id":"gen-1786299580-WmJmF2Dd97t3OwObMaKo","object":"chat.completion.chunk","created":1786299580,"model":"poolside/laguna-xs-2.1:free","provider":"Poolside","service_tier":null,"choices":[{"index":0,"delta":{"content":"","role":"assistant"},"finish_reason":"stop","native_finish_reason":"stop"}],"usage":{"prompt_tokens":1525,"completion_tokens":64,"total_tokens":1589,"cost":0,"is_byok":false,"prompt_tokens_details":{"cached_tokens":32,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0,"upstream_inference_prompt_cost":0,"upstream_inference_completions_cost":0},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}}
 
 [openrouter resp] data: [DONE]
 
