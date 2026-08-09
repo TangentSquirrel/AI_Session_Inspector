@@ -9,6 +9,7 @@ void --extensionDevelopmentPath=<whatever>/AI_Session_Inspector/usage-viewer/ <w
 node logproxy.js --config targets.json --quiet 2>&1 | tee proxy.log 
 
 #configure void model
+
 Setup OpenAI-Compatible Config, put your openrouter api key in:
 ![Setup OpenAI-Compatible Config, put your openrouter api key in](Screenshots/VoidSetting1.png)
 
