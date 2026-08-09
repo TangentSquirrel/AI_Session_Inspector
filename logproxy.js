@@ -19,6 +19,7 @@
 const quiet = process.argv.includes('--quiet');
 //node logproxy.js --config targets.json --quiet
 
+const path = require('path');
 const os = require('os');
 const fs = require('fs');
 const http = require('http');
