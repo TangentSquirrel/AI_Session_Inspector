@@ -14,11 +14,11 @@ function getUsageLogPath(context) {
   const sharedPath = path.join(os.homedir(), '.ai-session-inspector');
 
   // Ensure directory exists
-  if (!fs.existsSync(globalStoragePath)) {
-    fs.mkdirSync(globalStoragePath, { recursive: true });
+  if (!fs.existsSync(sharedPath)) {
+    fs.mkdirSync(sharedPath, { recursive: true });
   }
   
-  return path.join(globalStoragePath, 'usage.jsonl');
+  return path.join(sharedPath, 'usage.jsonl');
 }
 
 function formatEntry(record) {
